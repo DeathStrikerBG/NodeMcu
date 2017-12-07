@@ -3,9 +3,9 @@
 
 // Update these with values suitable for your network.
 
-const char* ssid = "galabovi";
-const char* password = "2332174549";
-const char* mqtt_server = "iot.eclipse.org";
+const char* ssid = "**************";
+const char* password = "*************";
+const char* mqtt_server = "****************";
 int led = 2;
 WiFiClient espClient;
 PubSubClient client(espClient);
