@@ -21,13 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-*/
-  
+*/ 
+//You need to add these libraries to can your code work.
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
 // Update these with values suitable for your network.
-// Here you  can add your wi fi username,password and mqtt broker
 const char* ssid = "**************";
 const char* password = "*************";
 const char* mqtt_server = "****************";
@@ -41,7 +40,7 @@ int value = 0;
 void setup_wifi() {
 
   delay(10);
-  // We start by connecting to a WiFi network
+  // We start by connecting to a WiFi network.
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
@@ -117,12 +116,12 @@ void loop() {
   client.loop();
 
   long now = millis();
-  if (now - lastMsg > 2000) {
+  if (now - lastMsg > 2000) { // If "now" - "lastMsg" is bigger than 2000 => "lastMsg" is equally to "now". "2000" is value.
     lastMsg = now;
     ++value;
-    snprintf (msg, 75, "hello world #%ld", value);
-    Serial.print("Publish message: ");
+    snprintf (msg, 75, "hello world #%ld", value); 
+    Serial.print("Publish message: ");             
     Serial.println(msg);
-    client.publish("wi-fi led", msg);
+    client.publish("wi-fi led", msg); 
   }
 }
