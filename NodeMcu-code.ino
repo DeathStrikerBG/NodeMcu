@@ -2,7 +2,7 @@
 #include <PubSubClient.h>
 
 // Update these with values suitable for your network.
-
+// Here you  can add your wi fi username,password and mqtt broker
 const char* ssid = "**************";
 const char* password = "*************";
 const char* mqtt_server = "****************";
