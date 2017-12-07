@@ -36,6 +36,7 @@ PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
+int const SEND_DELAY = 2000;
 
 void setup_wifi() {
 
@@ -116,7 +117,7 @@ void loop() {
   client.loop();
 
   long now = millis();
-  if (now - lastMsg > 2000) { // If "now" - "lastMsg" is bigger than 2000 => "lastMsg" is equally to "now". "2000" is value.
+  if (now - lastMsg > SEND_DELAY) { // If "now" - "lastMsg" is bigger than 2000 => "lastMsg" is equally to "now". "2000" is value.
     lastMsg = now;
     ++value;
     snprintf (msg, 75, "hello world #%ld", value); 
